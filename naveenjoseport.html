@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech Portfolio - Naveen Jose</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-black: #111827;
+      --color-gray: #6b7280;
+      --color-white: #ffffff;
+      --color-primary: #000000;
+      --transition-speed: 0.3s;
+      --border-radius: 0.75rem;
+      --max-width: 1200px;
+      --spacing-large: 4rem;
+      --spacing-medium: 2rem;
+      --spacing-small: 1rem;
+    }
+
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-white);
+      color: var(--color-gray);
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    h1, h2, h3 {
+      color: var(--color-black);
+      margin-top: 0;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 3.25rem; /* 52px */
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: var(--spacing-medium);
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--spacing-medium);
+      padding-right: var(--spacing-medium);
+    }
+
+    /* Header / Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--color-white);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      z-index: 999;
+      backdrop-filter: saturate(180%) blur(12px);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing-medium);
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--color-black);
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: var(--spacing-large);
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: var(--color-gray);
+      padding: 8px 4px;
+      border-radius: var(--border-radius);
+      transition: color var(--transition-speed), background-color var(--transition-speed);
+      will-change: color, background-color;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--color-primary);
+      background-color: #f3f4f6;
+      outline-offset: 2px;
+      outline: 2px solid var(--color-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: var(--spacing-large);
+      padding-bottom: var(--spacing-large);
+      text-align: center;
+    }
+    .hero h1 {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--spacing-small);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--color-gray);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--spacing-medium);
+    }
+    .hero .cta-button {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 1.25rem;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+      user-select: none;
+    }
+    .hero .cta-button:hover,
+    .hero .cta-button:focus {
+      background-color: #222222;
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      outline: none;
+    }
+
+    /* Sections */
+    section {
+      padding-top: var(--spacing-large);
+      padding-bottom: var(--spacing-large);
+    }
+
+    /* About */
+    .about-text {
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--color-gray);
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-form label {
+      font-weight: 600;
+      color: var(--color-black);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: var(--border-radius);
+      resize: vertical;
+      transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+      width: 100%;
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 7px rgba(0,0,0,0.1);
+      outline: none;
+    }
+    .contact-form button {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 1.125rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+    }
+    .contact-form button:hover,
+    .contact-form button:focus {
+      background-color: #222222;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      padding: var(--spacing-medium);
+      text-align: center;
+      color: var(--color-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      nav {
+        padding: 0 var(--spacing-small);
+      }
+      .nav-links {
+        gap: var(--spacing-medium);
+      }
+      .hero .cta-button {
+        padding: 0.75rem 2rem;
+        font-size: 1.125rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <nav role="navigation" aria-label="Primary Navigation">
+      <div class="logo" tabindex="0">Naveen Jose</div>
+      <div class="nav-links">
+        <a href="#about" tabindex="0">About</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title">Building Elegant &amp; Modern Web Experiences</h1>
+        <p>Your tech portfolio showcasing your best projects, skills, and passion for clean code and design.</p>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Contact me">Get In Touch</button>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About Me</h2>
+        <p class="about-text">I am a passionate web developer focused on creating elegant, performant, and user-friendly applications. With strong skills in modern JavaScript, React, and CSS, I am dedicated to clean code and thoughtful design that delivers delightful experiences.</p>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Get In Touch</h2>
+        <form class="contact-form" novalidate onsubmit="handleFormSubmit(event)">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required autocomplete="email" />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Naveen Jose. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please fill out all fields.');
+        return;
+      }
+      if (!validateEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Simple submission simulation
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      form.reset();
+    }
+
+    function validateEmail(email) {
+      // Simple email validation pattern
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+  </script>
+</body>
+</html>
+
